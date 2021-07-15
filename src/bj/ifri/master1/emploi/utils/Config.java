@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package bj.douanes.utils;
+package bj.ifri.master1.emploi.utils;
 
 /**
  *
