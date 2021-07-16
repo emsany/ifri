@@ -11,6 +11,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,12 +25,31 @@ public class Dao {
     protected List<Dao> list(){
         return null;
     }
-    protected void Connect() throws SQLException{
-        Properties connectionProps = new Properties();
-        connectionProps.put("user", Config.DATABASE_USER_NAME);
-        connectionProps.put("password", Config.DATABASE_USER_PASSWORD);
-        connection = DriverManager.getConnection("jdbc:postgresql://" + Config.DATABASE_SERVER_ADDRESS + ":" + Config.DATABASE_SERVER_PORT + "/" +  Config.DATABASE_NAME, connectionProps);
+    public static boolean Connect(){
+        
+
+        try {
+            if (connection != null && connection.isValid(1000) )  return true;
+            Properties connectionProps = new Properties();
+            connectionProps.put("user", Config.DATABASE_USER_NAME);
+            connectionProps.put("password", Config.DATABASE_USER_PASSWORD);
+            connection = DriverManager.getConnection("jdbc:postgresql://" + Config.DATABASE_SERVER_ADDRESS + ":" + Config.DATABASE_SERVER_PORT + "/" +  Config.DATABASE_NAME, connectionProps);
+        } catch (SQLException ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
         System.out.println("Connected to database");
+        return true;
     }
+
+    public static Connection getConnection() {
+        return connection;
+    }
+
+    public static void setConnection(Connection connection) {
+        Dao.connection = connection;
+    }
+    
+    
     
 }

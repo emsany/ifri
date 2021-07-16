@@ -5,16 +5,19 @@
  */
 package bj.ifri.master1.fenetres;
 
+import bj.ifri.master1.emploi.modele.Dao;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author imandine
  */
-public class connexion extends javax.swing.JFrame {
+public class FenIdentification extends javax.swing.JFrame {
 
     /**
      * Creates new form connexion
      */
-    public connexion() {
+    public FenIdentification() {
         initComponents();
     }
 
@@ -54,6 +57,11 @@ public class connexion extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jButton1.setText("VALIDER");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -99,6 +107,22 @@ public class connexion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        //connexion a la base d onnees
+        
+//        if( Dao.Connect()){
+//            JOptionPane.showMessageDialog(this, "c'est bon!");
+//        }
+        
+        
+        
+        Principal principal = new Principal();
+        this.setVisible(false);
+        principal.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -116,20 +140,21 @@ public class connexion extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(connexion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FenIdentification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(connexion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FenIdentification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(connexion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FenIdentification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(connexion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FenIdentification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new connexion().setVisible(true);
+                new FenIdentification().setVisible(true);
             }
         });
     }

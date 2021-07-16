@@ -11,10 +11,10 @@ package bj.ifri.master1.emploi.utils;
  */
 public class Config {
     public static String PORJECT_NAME ="Gestion de l'emploi du temps";
-    public static String DATABASE_NAME = "";
-    public static String DATABASE_USER_NAME = "";
-    public static String DATABASE_USER_PASSWORD = "";
-    public static String DATABASE_SERVER_ADDRESS = "";
-    public static String DATABASE_SERVER_PORT = "";
+    public static String DATABASE_NAME = "dbemploidutemps";
+    public static String DATABASE_USER_NAME = "postgres";
+    public static String DATABASE_USER_PASSWORD = "admin123";
+    public static String DATABASE_SERVER_ADDRESS = "localhost";
+    public static String DATABASE_SERVER_PORT = "5433";
     
 }
