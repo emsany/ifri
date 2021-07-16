@@ -20,6 +20,7 @@ public class JFormPanel extends javax.swing.JPanel  {
         this.mode = mode;
     }
 
+    
     public JFormPanel(MODE_OUVERTURE mode, LayoutManager layout) {
         super(layout);
         this.mode = mode;
