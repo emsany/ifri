@@ -92,8 +92,8 @@ public class FormEnseignant extends javax.swing.JFrame  {
         matiere = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -109,15 +109,16 @@ public class FormEnseignant extends javax.swing.JFrame  {
         jScrollPane2.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("matricule :");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, -1, -1));
 
         jLabel2.setText("Nom:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
-        getContentPane().add(code, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 100, -1));
-        getContentPane().add(libelle, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 340, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+        getContentPane().add(code, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 100, -1));
+        getContentPane().add(libelle, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 350, -1));
 
         jButton3.setText("Enregistrer");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -125,23 +126,23 @@ public class FormEnseignant extends javax.swing.JFrame  {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, -1, -1));
-        getContentPane().add(libelle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 350, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, -1, -1));
+        getContentPane().add(libelle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 350, -1));
 
         jLabel3.setText("Prenom:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
-        getContentPane().add(libelle2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 160, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
+        getContentPane().add(libelle2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 160, -1));
 
         jLabel4.setText("titre");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, -1, -1));
-        getContentPane().add(libelle3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 350, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, -1, -1));
+        getContentPane().add(libelle3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 350, -1));
 
         jLabel5.setText("Téléphone");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
-        getContentPane().add(libelle4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 350, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
+        getContentPane().add(libelle4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 350, -1));
 
         jLabel6.setText("Adresse :");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -153,7 +154,7 @@ public class FormEnseignant extends javax.swing.JFrame  {
         ));
         jScrollPane1.setViewportView(table);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 530, 170));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, 530, 170));
 
         jButton1.setText("+");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -161,25 +162,26 @@ public class FormEnseignant extends javax.swing.JFrame  {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 290, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 360, -1, -1));
 
-        getContentPane().add(matiere, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 310, -1));
+        getContentPane().add(matiere, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 310, -1));
 
         jLabel7.setText("Ajouter une matière .");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 140, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 140, -1));
 
         jButton2.setText("-");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 320, 40, -1));
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel8.setText("Enregistrement des enseignants");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 390, 50, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("PHOTO");
         jLabel9.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 100, 90));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 100, 90));
+
+        jLabel10.setFont(new java.awt.Font("Daniel Black", 3, 24)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Enregistrement des Enseignants");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 30, 550, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -299,13 +301,13 @@ public class FormEnseignant extends javax.swing.JFrame  {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
