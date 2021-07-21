@@ -11,16 +11,16 @@ package bj.ifri.master1.emploi.modele;
  */
 public class Enseignant extends Dao{	
     
-        private String matricule;
+        private String code;
 	private String nom;
 	private String prenom;
 	private String dateNais;
 	
 	public String getMatricule() {
-		return matricule;
+		return code;
 	}
 	public void setMatricule(String matricule) {
-		this.matricule = matricule;
+		this.code = matricule;
 	}
 	public String getNom() {
 		return nom;
@@ -40,5 +40,28 @@ public class Enseignant extends Dao{
 	public void setDateNais(String dateNais) {
 		this.dateNais = dateNais;
 	}
+
+    public Enseignant(String matricule, String nom, String prenom, String dateNais) {
+        this.code = matricule;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.dateNais = dateNais;
+    }
+
+    public Enseignant() {
+    }
+
+    public Enseignant(String matricule, String nom, String prenom) {
+        this.code = matricule;
+        this.nom = nom;
+        this.prenom = prenom;
+    }
+
+    @Override
+    public String toString() {
+        return code + "-" + nom + " " + prenom; //To change body of generated methods, choose Tools | Templates.
+    }
+        
+        
 
 }

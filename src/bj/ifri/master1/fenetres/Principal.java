@@ -7,6 +7,8 @@ package bj.ifri.master1.fenetres;
 
 import bj.ifri.master1.fenetres.classe.FormClasse;
 import bj.ifri.master1.fenetres.classe.ListeClasse;
+import bj.ifri.master1.fenetres.cours.FormCours;
+import bj.ifri.master1.fenetres.cours.ListeCours;
 import bj.ifri.master1.fenetres.cycle.FormCycle;
 import bj.ifri.master1.fenetres.cycle.ListeCycle;
 import bj.ifri.master1.fenetres.enseignant.FormEnseignant;
@@ -71,10 +73,14 @@ public class Principal extends javax.swing.JFrame {
         jMenu11 = new javax.swing.JMenu();
         jMenuItem13 = new javax.swing.JMenuItem();
         jMenuItem14 = new javax.swing.JMenuItem();
+        jMenu14 = new javax.swing.JMenu();
+        jMenuItem19 = new javax.swing.JMenuItem();
+        jMenuItem20 = new javax.swing.JMenuItem();
         jMenu12 = new javax.swing.JMenu();
         jMenuItem16 = new javax.swing.JMenuItem();
         jMenuItem18 = new javax.swing.JMenuItem();
         jMenuItem17 = new javax.swing.JMenuItem();
+        jMenu13 = new javax.swing.JMenu();
 
         jMenu5.setText("jMenu5");
 
@@ -243,6 +249,26 @@ public class Principal extends javax.swing.JFrame {
 
         jMenu2.add(jMenu11);
 
+        jMenu14.setText("Cours");
+
+        jMenuItem19.setText("Nouveau");
+        jMenuItem19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem19ActionPerformed(evt);
+            }
+        });
+        jMenu14.add(jMenuItem19);
+
+        jMenuItem20.setText("Liste");
+        jMenuItem20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem20ActionPerformed(evt);
+            }
+        });
+        jMenu14.add(jMenuItem20);
+
+        jMenu2.add(jMenu14);
+
         jMenuBar1.add(jMenu2);
 
         jMenu12.setText("Emploi du temps");
@@ -255,6 +281,9 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuItem17.setText("Edition");
         jMenu12.add(jMenuItem17);
+
+        jMenu13.setText("jMenu13");
+        jMenu12.add(jMenu13);
 
         jMenuBar1.add(jMenu12);
 
@@ -371,6 +400,18 @@ public class Principal extends javax.swing.JFrame {
         form.setVisible(true);
     }//GEN-LAST:event_jMenuItem13ActionPerformed
 
+    private void jMenuItem19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem19ActionPerformed
+        // TODO add your handling code here:
+                FormCours form = new FormCours("creation");
+        form.setVisible(true);
+    }//GEN-LAST:event_jMenuItem19ActionPerformed
+
+    private void jMenuItem20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem20ActionPerformed
+        // TODO add your handling code here:
+             ListeCours liste = new ListeCours();
+        liste.setVisible(true);      
+    }//GEN-LAST:event_jMenuItem20ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -418,6 +459,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu11;
     private javax.swing.JMenu jMenu12;
+    private javax.swing.JMenu jMenu13;
+    private javax.swing.JMenu jMenu14;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
@@ -437,7 +480,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JMenuItem jMenuItem17;
     private javax.swing.JMenuItem jMenuItem18;
+    private javax.swing.JMenuItem jMenuItem19;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem20;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;

@@ -5,11 +5,9 @@
  */
 package bj.ifri.master1.fenetres.enseignant;
 
-import bj.ifri.master1.fenetres.filiere.*;
 import bj.ifri.master1.emploi.modele.Dao;
 import bj.ifri.master1.emploi.modele.Filiere;
 import bj.ifri.master1.emploi.modele.Matiere;
-import bj.ifri.master1.fenetres.*;
 import bj.ifri.master1.fenetres.matiere.FormMatiere;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,7 +17,6 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -58,7 +55,7 @@ public class FormEnseignant extends javax.swing.JFrame  {
          if("modification".equals(mode)){
             code.setText(filiere.getCode());
             code.setEnabled(false);
-            libelle.setText(filiere.getLibelle());
+            nom.setText(filiere.getLibelle());
         }
     }
 
@@ -76,15 +73,15 @@ public class FormEnseignant extends javax.swing.JFrame  {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         code = new javax.swing.JTextField();
-        libelle = new javax.swing.JTextField();
+        nom = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
-        libelle1 = new javax.swing.JTextField();
+        prenom = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        libelle2 = new javax.swing.JTextField();
+        titre = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        libelle3 = new javax.swing.JTextField();
+        telephone = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        libelle4 = new javax.swing.JTextField();
+        adresse = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
@@ -118,7 +115,13 @@ public class FormEnseignant extends javax.swing.JFrame  {
         jLabel2.setText("Nom:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
         getContentPane().add(code, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 100, -1));
-        getContentPane().add(libelle, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 350, -1));
+
+        nom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nomActionPerformed(evt);
+            }
+        });
+        getContentPane().add(nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 350, -1));
 
         jButton3.setText("Enregistrer");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -127,19 +130,19 @@ public class FormEnseignant extends javax.swing.JFrame  {
             }
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, -1, -1));
-        getContentPane().add(libelle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 350, -1));
+        getContentPane().add(prenom, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 350, -1));
 
         jLabel3.setText("Prenom:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
-        getContentPane().add(libelle2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 160, -1));
+        getContentPane().add(titre, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 160, -1));
 
         jLabel4.setText("titre");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, -1, -1));
-        getContentPane().add(libelle3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 350, -1));
+        getContentPane().add(telephone, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 350, -1));
 
         jLabel5.setText("Téléphone");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
-        getContentPane().add(libelle4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 350, -1));
+        getContentPane().add(adresse, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 350, -1));
 
         jLabel6.setText("Adresse :");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
@@ -193,7 +196,7 @@ public class FormEnseignant extends javax.swing.JFrame  {
             JOptionPane.showMessageDialog(this, "Le code de la filiere est obligatoire");
             return;
         }
-        if( "".equals( libelle.getText().trim()) ){
+        if( "".equals( nom.getText().trim()) ){
             JOptionPane.showMessageDialog(this, "Le libelle de la filiere est obligatoire");
             return;
         }
@@ -205,10 +208,14 @@ public class FormEnseignant extends javax.swing.JFrame  {
                     Dao.Connect();
                     Connection connection = Dao.getConnection();
 
-                    String query = "INSERT INTO \"ENSEIGNANT\" VALUES(?,?)";
+                    String query = "INSERT INTO \"ENSEIGNANT\" VALUES(?,?,?,?,?,?)";
                     PreparedStatement pst = connection.prepareStatement(query);
                     pst.setString(1, code.getText());
-                    pst.setString(2, libelle.getText());
+                    pst.setString(2, nom.getText());
+                    pst.setString(3, prenom.getText());
+                    pst.setString(4, titre.getText());
+                    pst.setString(5, telephone.getText());
+                    pst.setString(6, adresse.getText());                    
                     int result = pst.executeUpdate();
                 } catch (SQLException ex) {
                     Logger.getLogger(FormEnseignant.class.getName()).log(Level.SEVERE, null, ex);
@@ -218,10 +225,14 @@ public class FormEnseignant extends javax.swing.JFrame  {
                 try {
                 Dao.Connect();
                 Connection connection = Dao.getConnection();
-                    String query = "UPDATE \"ENSEIGNANT\" SET NOM = ? WHERE CODE = ?";
+                    String query = "UPDATE \"ENSEIGNANT\" SET NOM = ?, PRENOM = ?, TITRE=?, TELEPHONE= ?, ADRESSE = ? WHERE CODE = ?";
                     PreparedStatement pst = connection.prepareStatement(query);
-                    pst.setString(2, code.getText());
-                    pst.setString(1, libelle.getText());
+                    pst.setString(2, nom.getText());
+                    pst.setString(3, prenom.getText());
+                    pst.setString(4, titre.getText());
+                    pst.setString(5, telephone.getText());
+                    pst.setString(6, adresse.getText());
+                    pst.setString(1, code.getText());
                     int result = pst.executeUpdate();
                 } catch (SQLException ex) {
                     Logger.getLogger(FormEnseignant.class.getName()).log(Level.SEVERE, null, ex);
@@ -244,6 +255,10 @@ public class FormEnseignant extends javax.swing.JFrame  {
         model.addRow( splited);
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void nomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomActionPerformed
 
     /**
      * @param args the command line arguments
@@ -296,6 +311,7 @@ public class FormEnseignant extends javax.swing.JFrame  {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField adresse;
     private javax.swing.JTextField code;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -312,13 +328,12 @@ public class FormEnseignant extends javax.swing.JFrame  {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField libelle;
-    private javax.swing.JTextField libelle1;
-    private javax.swing.JTextField libelle2;
-    private javax.swing.JTextField libelle3;
-    private javax.swing.JTextField libelle4;
     private javax.swing.JComboBox<String> matiere;
+    private javax.swing.JTextField nom;
+    private javax.swing.JTextField prenom;
     private javax.swing.JTable table;
+    private javax.swing.JTextField telephone;
+    private javax.swing.JTextField titre;
     // End of variables declaration//GEN-END:variables
 
     private void remplirMatieres() {

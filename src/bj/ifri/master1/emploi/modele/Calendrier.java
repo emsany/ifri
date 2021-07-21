@@ -1,7 +1,10 @@
 package bj.ifri.master1.emploi.modele;
 
 import java.util.Date;
+import java.util.List;
 
 public class Calendrier {
-    Date Jour;
+    private Date Jour;
+    private Planning planning;
+    private List<Creneau>  crenaux;
 }

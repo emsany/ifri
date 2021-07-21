@@ -35,8 +35,20 @@ public class Classe {
         this.cycle = cycle;
     }
 
+    public Classe(String code, String nom) {
+        this.code = code;
+        this.nom = nom;
+    }
+
     public Classe() {
     }
+
+    
+    @Override
+    public String toString() {
+        return code + ":" + nom; //To change body of generated methods, choose Tools | Templates.
+    }
+    
     
     
 
