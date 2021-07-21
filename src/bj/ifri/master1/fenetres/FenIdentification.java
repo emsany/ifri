@@ -6,7 +6,16 @@
 package bj.ifri.master1.fenetres;
 
 import bj.ifri.master1.emploi.modele.Dao;
+import bj.ifri.master1.fenetres.matiere.FormMatiere;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -34,9 +43,9 @@ public class FenIdentification extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        login = new javax.swing.JTextPane();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextPane2 = new javax.swing.JTextPane();
+        password = new javax.swing.JTextPane();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
@@ -51,9 +60,9 @@ public class FenIdentification extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Open Sans", 1, 12)); // NOI18N
         jLabel2.setText("Identifiant :");
 
-        jScrollPane1.setViewportView(jTextPane1);
+        jScrollPane1.setViewportView(login);
 
-        jScrollPane2.setViewportView(jTextPane2);
+        jScrollPane2.setViewportView(password);
 
         jButton1.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jButton1.setText("VALIDER");
@@ -110,17 +119,44 @@ public class FenIdentification extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-        //connexion a la base d onnees
-        
-//        if( Dao.Connect()){
-//            JOptionPane.showMessageDialog(this, "c'est bon!");
-//        }
-        
-        
-        
-        Principal principal = new Principal();
-        this.setVisible(false);
-        principal.setVisible(true);
+
+        if( login.getText().trim().equals("") || password.getText().trim().equals("") ){
+            JOptionPane.showMessageDialog(this, "Veuillez bien reseigner les parametres de connexion");
+            return;
+        }
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        boolean isOk = false;
+        try {
+            // TODO add your handling code here:
+            Dao.Connect();
+            Connection connection = Dao.getConnection();
+            String query = "SELECT * FROM \"utilisateur\" WHERE login = ? and motpasse=?";
+            st = connection.prepareStatement(query);
+            st.setString(1, login.getText());
+            st.setString(2, password.getText());
+            rs = st.executeQuery();
+            if( rs.next()){
+                isOk = true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FormMatiere.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            try{
+                rs.close();
+                st.close();
+            }catch(Exception e){}
+        }
+
+        if(isOk){
+                Principal principal = new Principal();
+                this.setVisible(false);
+                principal.setVisible(true);
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Parametres de connexion incorrects");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -167,7 +203,7 @@ public class FenIdentification extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextPane jTextPane1;
-    private javax.swing.JTextPane jTextPane2;
+    private javax.swing.JTextPane login;
+    private javax.swing.JTextPane password;
     // End of variables declaration//GEN-END:variables
 }
