@@ -19,20 +19,23 @@ import bj.ifri.master1.fenetres.filiere.Form;
 import bj.ifri.master1.fenetres.filiere.Liste;
 import bj.ifri.master1.fenetres.matiere.FormMatiere;
 import bj.ifri.master1.fenetres.matiere.ListeMatiere;
+import bj.ifri.master1.fenetres.planning.FenPlanningRepris;
 import bj.ifri.master1.fenetres.salle.FormSalle;
 import bj.ifri.master1.fenetres.salle.ListeSalle;
+import javax.swing.JFrame;
 
 /**
  *
  * @author imandine
  */
-public class Principal extends javax.swing.JFrame {
+public class Principal extends JFrame {
 
     /**
      * Creates new form accueil
      */
     public Principal() {
         initComponents();
+        this.setExtendedState(this.getExtendedState() | JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -80,26 +83,25 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem16 = new javax.swing.JMenuItem();
         jMenuItem18 = new javax.swing.JMenuItem();
         jMenuItem17 = new javax.swing.JMenuItem();
-        jMenu13 = new javax.swing.JMenu();
 
         jMenu5.setText("jMenu5");
 
         jMenu8.setText("jMenu8");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setResizable(false);
 
         jLabel4.setFont(new java.awt.Font("Daniel Black", 3, 24)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Gestion des emplois de temps");
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bj/ifri/master1/fenetres/logo_ifri.jpg"))); // NOI18N
         jLabel1.setIconTextGap(2);
 
         jMenuBar1.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
 
         jMenu1.setText("File");
-        jMenu1.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
+        jMenu1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
         jMenuItem15.setText("Quitter");
         jMenu1.add(jMenuItem15);
@@ -107,7 +109,7 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Paramètres");
-        jMenu2.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
+        jMenu2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
         jMenu3.setText("Filieres");
 
@@ -272,8 +274,14 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu12.setText("Emploi du temps");
+        jMenu12.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
 
         jMenuItem16.setText("Creation");
+        jMenuItem16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem16ActionPerformed(evt);
+            }
+        });
         jMenu12.add(jMenuItem16);
 
         jMenuItem18.setText("Recherche");
@@ -281,9 +289,6 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuItem17.setText("Edition");
         jMenu12.add(jMenuItem17);
-
-        jMenu13.setText("jMenu13");
-        jMenu12.add(jMenu13);
 
         jMenuBar1.add(jMenu12);
 
@@ -412,6 +417,12 @@ public class Principal extends javax.swing.JFrame {
         liste.setVisible(true);      
     }//GEN-LAST:event_jMenuItem20ActionPerformed
 
+    private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
+        // TODO add your handling code here:
+                FenPlanningRepris fenPlanningRepris = new FenPlanningRepris();
+        fenPlanningRepris.setVisible(true);      
+    }//GEN-LAST:event_jMenuItem16ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -459,7 +470,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu11;
     private javax.swing.JMenu jMenu12;
-    private javax.swing.JMenu jMenu13;
     private javax.swing.JMenu jMenu14;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

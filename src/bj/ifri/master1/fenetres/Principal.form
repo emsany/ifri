@@ -31,7 +31,7 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="File"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Open Sans" size="14" style="1"/>
+              <Font name="Segoe UI" size="14" style="1"/>
             </Property>
           </Properties>
           <SubComponents>
@@ -46,7 +46,7 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Param&#xe8;tres"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Open Sans" size="14" style="1"/>
+              <Font name="Segoe UI" size="14" style="1"/>
             </Property>
           </Properties>
           <SubComponents>
@@ -239,12 +239,18 @@
         <Menu class="javax.swing.JMenu" name="jMenu12">
           <Properties>
             <Property name="text" type="java.lang.String" value="Emploi du temps"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="15" style="1"/>
+            </Property>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem16">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Creation"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem16ActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem18">
               <Properties>
@@ -256,11 +262,6 @@
                 <Property name="text" type="java.lang.String" value="Edition"/>
               </Properties>
             </MenuItem>
-            <Menu class="javax.swing.JMenu" name="jMenu13">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jMenu13"/>
-              </Properties>
-            </Menu>
           </SubComponents>
         </Menu>
       </SubComponents>
@@ -268,7 +269,6 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
@@ -327,6 +327,9 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/bj/ifri/master1/fenetres/logo_ifri.jpg"/>
+        </Property>
         <Property name="iconTextGap" type="int" value="2"/>
       </Properties>
     </Component>

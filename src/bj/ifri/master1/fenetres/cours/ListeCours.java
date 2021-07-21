@@ -6,10 +6,7 @@
 package bj.ifri.master1.fenetres.cours;
 
 import bj.ifri.master1.emploi.modele.Cours;
-import bj.ifri.master1.fenetres.filiere.*;
 import bj.ifri.master1.emploi.modele.Dao;
-import bj.ifri.master1.emploi.modele.Filiere;
-import bj.ifri.master1.fenetres.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,7 +14,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
 /**
